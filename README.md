@@ -15,10 +15,10 @@ En cas de déconnexion, crash, ou autre problème interrompant le programme, le 
 
 ## Utilisation: 
 
-Normalement le programme démarre automatiquement a l'allumage du salon, mais si besoin de le lancer manuellement:
+Normalement le programme démarre automatiquement a l'allumage du salon, mais si besoin de le lancer manuellement: \
 Lancer Main avec sudo et l'adresse du raspberry contrôlant le salon desire.
 
-Par exemple pour Cuba:
+Par exemple pour Cuba: \
 `sudo ./Main 192.168.1.104`
 
 ## Liste des adresses des salons:
@@ -30,4 +30,4 @@ Par exemple pour Cuba:
 `Toys 192.168.1.110` \
 `80s 192.168.1.113` \
 `Sitcom 6 192.168.1.116` \
-`Big Bro 192.168.1.119` \
+`Big Bro 192.168.1.119` 
