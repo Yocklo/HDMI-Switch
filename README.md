@@ -19,7 +19,7 @@ Normalement le programme démarre automatiquement a l'allumage du salon, mais si
 Lancer Main avec sudo et l'adresse du raspberry contrôlant le salon desire.
 
 Par exemple pour Cuba:
-sudo ./Main 192.168.1.104
+`sudo ./Main 192.168.1.104`
 
 ## Liste des adresses des salons:
 
