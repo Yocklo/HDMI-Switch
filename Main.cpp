@@ -52,16 +52,13 @@ void sendNECCommand(int gpio, uint8_t address, uint8_t command) {
     // NEC Header
     sendPulse(gpio, FREQ, 9000); // 9 ms HIGH
     gpioDelay(4500); // 4.5 ms LOW
-
     // Encode and send data
     uint8_t address_inv = ~address;
     uint8_t command_inv = ~command;
     uint32_t frame = (address << 24) | (address_inv << 16) | (command << 8) | command_inv;
-
     for (int i = 31; i >= 0; i--) {
         sendBit(gpio, (frame >> i) & 1); // Send each bit
     }
-
     // End pulse
     sendPulse(gpio, FREQ, PULSE_HIGH);
 }
@@ -105,9 +102,7 @@ void tcpConnectAndListen(const std::string& address, int port) {
         std::cerr << "Connection failed." << std::endl;
         goto retry;
     }
-
     std::cout << "Connected to server at " << address << ":" << port << std::endl;
-
     //Envoi des commandes pour pouvoir recevoir les donnees transmise par le raspberry de controle
     // + setup du nom du serveur se connectant
    char buf[10] = {'s', 'u', 'b', 's', 'c', 'r', 'i', 'b', 'e', '\n'};
@@ -122,10 +117,8 @@ void tcpConnectAndListen(const std::string& address, int port) {
         std::cout << "Subscribe command sent successfully." << std::endl;
     }
     ssize_t bytesSent0 = write(sock, zero, strlen(zero));
-
     ssize_t bytesSent2 = write(sock, name, strlen(name));
     bytesSent2 = write(sock, name, strlen(name));
-
     if (bytesSent2 < 0) {
         std::cerr << "Failed to send setname command." << std::endl;
         close(sock);
@@ -144,23 +137,18 @@ void tcpConnectAndListen(const std::string& address, int port) {
         // Reset the file descriptor set
         FD_ZERO(&readfds);
         FD_SET(sock, &readfds);
-
         // Set timeout for select
         tv.tv_sec = 5; // 5 seconds timeout
         tv.tv_usec = 0;
-
         // check that socket is readable
         int activity = select(sock + 1, &readfds, nullptr, nullptr, &tv);
-
         if (activity < 0 && errno != EINTR) {
             std::cerr << "Select error." << std::endl;
             break;
         }
-
         // If socket is readable, read data
         if (FD_ISSET(sock, &readfds)) {
             valread = read(sock, buffer, sizeof(buffer) - 1); // Read up to the buffer size
-
             if (valread < 0) {
                 std::cerr << "Read error." << std::endl;
                 break;
@@ -168,7 +156,6 @@ void tcpConnectAndListen(const std::string& address, int port) {
                 std::cerr << "Server closed connection." << std::endl;
                 break;
             }
-
             // Null-terminate and process the buffer
             buffer[valread] = '\0';
             std::string receivedData(buffer);
@@ -197,8 +184,6 @@ void tcpConnectAndListen(const std::string& address, int port) {
                         zeroGap,
                         sendTrailingPulse,
                         "01000000101111110111101110000100");
-  
-
                 }
 
                 //quiz / Chill
@@ -217,7 +202,6 @@ void tcpConnectAndListen(const std::string& address, int port) {
                         zeroGap,
                         sendTrailingPulse,
                         "01000000101111110101101110100100");
-  
                 }
 
                 //Blind test
@@ -236,7 +220,6 @@ void tcpConnectAndListen(const std::string& address, int port) {
                         zeroGap,
                         sendTrailingPulse,
                         "01000000101111111101101100100100");
-  
                 }
 
                 //Club (Aucun changement de chaine dans ce cas.)
@@ -244,13 +227,12 @@ void tcpConnectAndListen(const std::string& address, int port) {
                 {
                     printf("Active Club\n");
                 }
-
             } else {
             // No data received; select timed out
             memset(buffer, 0, sizeof(buffer));
         }
     }
-    }
+}
     // Close socket after exit
     close(sock);
 }
@@ -270,9 +252,7 @@ int main(int argc, char *argv[]) {
 
     // Set IR_PIN as output
     gpioSetMode(IR_PIN, PI_OUTPUT);
-
     tcpConnectAndListen(address, port);
-
     gpioTerminate();
     goto restart;
     return 0;
