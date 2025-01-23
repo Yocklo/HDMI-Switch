@@ -25,9 +25,9 @@ Par exemple pour Cuba:
 
 (possible qu'elles changent au fur et a mesure de l’évolution des salles):
 
-`Cuba 192.168.1.104`
-`Sitcom 12 192.168.1.107`
-`Toys 192.168.1.110`
-`80s 192.168.1.113`
-`Sitcom 6 192.168.1.116`
-`Big Bro 192.168.1.119`
+`Cuba 192.168.1.104` \
+`Sitcom 12 192.168.1.107` \
+`Toys 192.168.1.110` \
+`80s 192.168.1.113` \
+`Sitcom 6 192.168.1.116` \
+`Big Bro 192.168.1.119` \
