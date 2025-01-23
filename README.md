@@ -16,16 +16,18 @@ En cas de déconnexion, crash, ou autre problème interrompant le programme, le 
 ## Utilisation: 
 
 Normalement le programme démarre automatiquement a l'allumage du salon, mais si besoin de le lancer manuellement: \
-Lancer Main avec sudo et l'adresse du raspberry contrôlant le salon desire.
+Lancer Main avec sudo et l'adresse du raspberry contrôlant le salon désiré.
 
 Par exemple pour Cuba: \
 `sudo ./Main 192.168.1.104`
 
-Pour faire en sorte que le programme se lance automatiquement au demarrage du raspberry pi, il suffit d'ajouter les lignes suivantes dans le fichier de config du shell par defaut. Par exemple si le shell est zsh, il faut modifier le fichier `/home/<username>/.zshrc`
+Pour faire en sorte que le programme se lance automatiquement au démarrage du raspberry pi, il suffit d'ajouter les lignes suivantes dans le fichier de config du shell par defaut. Par exemple si le shell est zsh, il faut modifier le fichier `/home/<username>/.zshrc`
 
 `if [[ -z "$SSH_TTY" ]]; then` \
-`	sudo /home/raspberry/HDMI-Switch/Main "Addresse du raspberry de controle (adresse sur VNC)"` \
+`	sudo /home/raspberry/HDMI-Switch/Main "Adresse"` \
 `fi`  
+
+ou "adresse" est l'adresse IP du raspberry de contrôle du salon désiré.
 
 ## Liste des adresses des salons:
 
