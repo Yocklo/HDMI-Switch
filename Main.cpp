@@ -179,7 +179,7 @@ void tcpConnectAndListen(const std::string& address, int port) {
                 }
 
                 //quiz
-                if ((receivedData.find("chill:quiz") != std::string::npos) || (receivedData.find("karaoke:quiz") != std::string::npos) || (receivedData.find("projection:quiz") != std::string::npos) || (receivedData.find("club:quiz") != std::string::npos)) 
+                if ((receivedData.find("chill:quiz") != std::string::npos) || (receivedData.find("karaoke:quiz") != std::string::npos) || (receivedData.find("projection:quiz") != std::string::npos) || (receivedData.find("club:quiz") != std::string::npos)  || (receivedData.find("karaoke:chill") != std::string::npos)  || (receivedData.find("quiz:chill") != std::string::npos) || (receivedData.find("club:chill") != std::string::npos) || (receivedData.find("projection:chill") != std::string::npos)) 
                 {
                     printf("Active quiz\n");
                         result = irSling(
