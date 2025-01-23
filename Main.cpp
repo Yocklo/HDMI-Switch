@@ -233,9 +233,10 @@ void tcpConnectAndListen(const std::string& address, int port) {
 }
 
 
-int main() {
+int main(int argc, char *argv[]) {
     restart:
-    std::string address = "";  //Adresse du raspberry de controle de la salle correspondante (Checker VNC)
+    printf(argv[1]);
+    std::string address = argv[1];  //Adresse du raspberry de controle de la salle correspondante (Checker VNC)
     int port = 4444;
 
     // Initialize pigpio for GPIO control
