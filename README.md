@@ -23,9 +23,9 @@ Par exemple pour Cuba: \
 
 Pour faire en sorte que le programme se lance automatiquement au demarrage du raspberry pi, il suffit d'ajouter les lignes suivantes dans le fichier de config du shell par defaut. Par exemple si le shell est zsh, il faut modifier le fichier `/home/<username>/.zshrc`
 
-`if [[ -z "$SSH_TTY" ]]; then
-	sudo /home/raspberry/HDMI-Switch/Main "Addresse du raspberry de controle (adresse sur VNC)"
-fi`  
+`if [[ -z "$SSH_TTY" ]]; then` \
+`	sudo /home/raspberry/HDMI-Switch/Main "Addresse du raspberry de controle (adresse sur VNC)"` \
+`fi`  
 
 ## Liste des adresses des salons:
 
