@@ -105,8 +105,9 @@ void tcpConnectAndListen(const std::string& address, int port) {
     std::cout << "Connected to server at " << address << ":" << port << std::endl;
     //Envoi des commandes pour pouvoir recevoir les donnees transmise par le raspberry de controle
     // + setup du nom du serveur se connectant
-   char buf[10] = {'s', 'u', 'b', 's', 'c', 'r', 'i', 'b', 'e', '\n'};
-    char name[18] = {'s', 'e', 't', 'n', 'a', 'm', 'e', ' ', 'H', 'D', 'M', 'I', ' ', 'V', '1', '.', '1', '\n' };
+   char buf[] = {'s', 'u', 'b', 's', 'c', 'r', 'i', 'b', 'e', '\n', '\0'};
+   //memset(buf, ' ', 10);
+    char name[19] = {'s', 'e', 't', 'n', 'a', 'm', 'e', ' ', 'H', 'D', 'M', 'I', '_', 'V', '1', '.', '1', '\n', '\0'};
     char zero[1] = {'\n'};
     ssize_t bytesSent1 = write(sock, buf, strlen(buf));
     if (bytesSent1 < 0) {
