@@ -15,7 +15,7 @@
 //Big Bro 192.168.1.119
 
 //Baptiste Aubry cree le 20/12/2024
-//Update le 23/01/2025
+//Update v1.1 le 04/02/2025
 
 #include <iostream>
 #include <cstring>
@@ -106,7 +106,7 @@ void tcpConnectAndListen(const std::string& address, int port) {
     //Envoi des commandes pour pouvoir recevoir les donnees transmise par le raspberry de controle
     // + setup du nom du serveur se connectant
    char buf[10] = {'s', 'u', 'b', 's', 'c', 'r', 'i', 'b', 'e', '\n'};
-    char name[13] = {'s', 'e', 't', 'n', 'a', 'm', 'e', ' ', 'H', 'D', 'M', 'I', '\n' };
+    char name[18] = {'s', 'e', 't', 'n', 'a', 'm', 'e', ' ', 'H', 'D', 'M', 'I', ' ', 'V', '1', '.', '1', '\n' };
     char zero[1] = {'\n'};
     ssize_t bytesSent1 = write(sock, buf, strlen(buf));
     if (bytesSent1 < 0) {
